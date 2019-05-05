@@ -142,6 +142,11 @@ prompt_virtualenv() {
   fi
 }
 
+# Space
+prompt_space() {
+  prompt_segment black default ""
+}
+
 ## Main prompt
 prompt_agnoster_main() {
   RETVAL=$?
