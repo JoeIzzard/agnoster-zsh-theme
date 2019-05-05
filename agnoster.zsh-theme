@@ -163,6 +163,13 @@ prompt_lambda() {
 
 }
 
+# Prompt Jobs
+prompt_jobs() {
+  if [[ $(jobs -l | wc -l) -gt 0 ]]; then
+    prompt_segment $PRIMARY_FG default " %{%F{cyan}%}$GEAR "
+  fi
+}
+
 # Display current virtual environment
 prompt_virtualenv() {
   if [[ -n $VIRTUAL_ENV ]]; then
