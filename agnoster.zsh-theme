@@ -152,6 +152,12 @@ prompt_space_large() {
   prompt_segment black default " "
 }
 
+# Time
+prompt_time() {
+  local ctime=`date +"%T"`
+  prompt_segment black white " $ctime "
+}
+
 ## Main prompt
 prompt_agnoster_main() {
   RETVAL=$?
