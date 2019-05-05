@@ -25,7 +25,9 @@
 ### Segments of the prompt, default order declaration
 
 typeset -aHg AGNOSTER_PROMPT_SEGMENTS=(
-    prompt_status
+    prompt_jobs
+    prompt_lambda
+    prompt_space
     prompt_context
     prompt_virtualenv
     prompt_dir
