@@ -147,6 +147,11 @@ prompt_space() {
   prompt_segment black default ""
 }
 
+# Large Space
+prompt_space_large() {
+  prompt_segment black default " "
+}
+
 ## Main prompt
 prompt_agnoster_main() {
   RETVAL=$?
