@@ -133,6 +133,36 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default " $symbols "
 }
 
+# Lambda Status
+# - Was there and error? - Red Background (Sit 1)
+# - Am I Root? - Golden Lambda
+# - Are there background Jobs? - Add Pre Cog
+prompt_lambda() {
+  sit=0
+  priv=0
+
+  if [[ $RETVAL -ne 0 ]]; then
+    sit=1
+  fi
+
+  if [[ $UID -eq 0 ]]; then
+    priv=1
+  fi
+
+  if [[ sit -eq 1 ]]; then
+    if [[ priv -eq 1 ]]; then
+      prompt_segment red white "%{$fg_bold[208]%} λ %{$reset_color%}"
+    else
+      prompt_segment red white "%{$fg_bold[white]%} λ %{$reset_color%}"
+    fi
+  elif [[ priv -eq 1 ]]; then
+    prompt_segment black 208 "%{$fg_bold[208]%} λ "
+  else
+    prompt_segment 208 white "%{$fg_bold[white]%} λ %{$reset_color%}"
+  fi
+
+}
+
 # Display current virtual environment
 prompt_virtualenv() {
   if [[ -n $VIRTUAL_ENV ]]; then
