@@ -87,7 +87,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment 91 black " %(!.%{%F{black}%}.)[%n > %m]"
+    prompt_segment 171 black " %(!.%{%F{black}%}.)[%n > %m]"
   fi
 }
 
@@ -153,14 +153,14 @@ prompt_lambda() {
 
   if [[ sit -eq 1 ]]; then
     if [[ priv -eq 1 ]]; then
-      prompt_segment red white "%{$fg_bold[91]%} λ %{$reset_color%}"
+      prompt_segment red white "%{$fg_bold[171]%} λ %{$reset_color%}"
     else
       prompt_segment red white "%{$fg_bold[white]%} λ %{$reset_color%}"
     fi
   elif [[ priv -eq 1 ]]; then
-    prompt_segment black 91 "%{$fg_bold[91]%} λ "
+    prompt_segment black 171 "%{$fg_bold[171]%} λ "
   else
-    prompt_segment 91 white "%{$fg_bold[white]%} λ %{$reset_color%}"
+    prompt_segment 171 white "%{$fg_bold[white]%} λ %{$reset_color%}"
   fi
 
 }
